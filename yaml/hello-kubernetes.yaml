@@ -17,6 +17,22 @@ spec:
   selector:
     app: hello-kubernetes  
 ---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-kubernetes-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /hello
+        pathType: Prefix
+        backend:
+          serviceName: hello-kubernetes-svc
+          servicePort: 80
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
