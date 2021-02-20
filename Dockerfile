@@ -1,4 +1,4 @@
-FROM node:13.6.0-alpine
+FROM arm64v8/node:13.6.0-alpine
 
 ARG IMAGE_CREATE_DATE
 ARG IMAGE_VERSION
